@@ -1,0 +1,162 @@
+<html>
+<head>
+    <title>Fila de clientes</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+    background-image: url(imagens/bfc53d8d97627e43e84b39f2ba82a5fa.png); 
+    background-size: cover;
+    margin: 0;
+}
+
+.container {
+    text-align: center;
+}
+
+h1 {
+    color: #333;
+}
+
+.queue-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.queue {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    height: 50px;
+    border: 2px solid #333;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.2); 
+    backdrop-filter: blur(10px); 
+    overflow: hidden;
+}
+
+.client {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin: 0 5px;
+}
+
+.controls {
+    margin-top: 20px;
+}
+
+
+form {
+    background-color: rgba(255, 255, 255, 0.3); 
+    backdrop-filter: blur(8px); 
+    padding: 20px;
+    border-radius: 10px;
+}
+
+fieldset {
+    border: none;
+}
+
+
+.button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+    transition: background-color 0.3s ease;
+}
+
+
+.button:hover {
+    background-color: #333;
+    color: #fff;
+}
+
+
+.button[value="Entrar na fila"] {
+    background-color: #4682b4; 
+    color: #fff;
+}
+
+
+.button[value="Concluir atendimento"] {
+    background-color: #ff6347; 
+    color: #fff;
+}
+
+
+input[type="text"] {
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px; 
+    margin-bottom: 10px; 
+    width: 100%; 
+    box-sizing: border-box; 
+}
+
+
+h4 {
+    font-size: 18px;
+    color: #333; 
+    margin-bottom: 5px;
+}
+
+input[type="text"] {
+    font-size: 18px;
+    color: #333; 
+    margin-bottom: 5px; 
+}
+
+
+h5 {
+    font-size: 16px;
+    color: #333; 
+    margin-bottom: 5px;
+}
+
+
+input[type="color"] {
+    width: 40px; 
+    height: 30px; 
+    border: none;
+    border-radius: 5px; 
+    vertical-align: middle; 
+    cursor: pointer; 
+    padding: 0; 
+}
+
+
+.spacer {
+    margin-bottom: 20px; 
+}
+    </style>
+</head>
+<body>
+    <form onsubmit="addToQueue(); return false;">
+        <fieldset>
+            <h4>Adicionar cliente à fila</h4>
+            <div class="spacer"></div> 
+            Nome do cliente: <input type="text" name="cliente"><br>
+            <h5>Escolha uma cor para a ficha:</h5>
+            <input type="color" name="corDeFundo">
+            <br><br>
+            <input type="submit" value="Entrar na fila" class="button">
+            <input type="button" value="Concluir atendimento" class="button" onclick="removeFromQueue();">
+        </fieldset>
+    </form>
+    <script src="script.js"></script>
+    
+    <div id="queue"></div>
+</body>
+</html>
